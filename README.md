@@ -14,6 +14,7 @@ This project demonstrates a simple e-commerce store REST API that handles user a
 ## Features
 
 - User authentication (sign up, login, profile) using Token Authentication
+- User information updating endpoint
 - CRUD operations for stores (only authenticated users)
 - CRUD operations for product categories (only authenticated users)
 - CRUD operations for products (only authenticated users)
@@ -105,10 +106,9 @@ ecommerce/
 
 1. Backend Framework: Django
 2. API Framework: Django REST Framework
-3. Database: SQLite (default, can be changed to
-4. PostgreSQL, MySQL, etc.)
-5. Authentication: Token Authentication
-6. Search: Django Filters
+3. Database: SQLite (default, Django)
+4. Authentication: Token Authentication
+5. Search: Django Filters
 
 # Usage
 
@@ -117,7 +117,10 @@ ecommerce/
 ### User Authentication
 - POST /api/users/signup/ - User sign-up
 - POST /api/users/login/ - User login
-- GET /api/users/profile/ - User profile
+
+### User Information Update
+- Put /api/user/profile/ - User info
+
 ### Store Management
 - POST /api/store/ - Create store
 - PUT /api/store/{id}/ - Update store
