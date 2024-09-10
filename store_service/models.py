@@ -10,7 +10,7 @@ class Store(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
-    store = models.ForeignKey(Store, related_name='categories', on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, related_name='categories', on_delete=models.CASCADE, null=True, blank=True)
 
 class Products(models.Model):
     name = models.CharField(max_length=255)

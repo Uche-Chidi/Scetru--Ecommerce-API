@@ -23,13 +23,17 @@ class StoreTests(APITestCase):
             name='Test Product',
             description='Product description',
             price=100,
-            stock=10,
+            # stock=10,
             category=self.category
         )
 
     def test_create_store(self):
         url = reverse('store-create')
-        data = {'name': 'New Store'}
+        data = {
+        'name': 'New Store',
+        'description': 'This is George\'s new store', 
+        'owner': self.user.id}
+
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Store.objects.count(), 2)  # Check the count
@@ -71,7 +75,17 @@ class CategoryTests(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
 
         # Create a category
-        self.category = Category.objects.create(name='Test Category')
+        # self.category = Category.objects.create(name='Test Category')
+        self.store = Store.objects.create(name='Test Store', owner=self.user)
+        self.category = Category.objects.create(name='Test Category', store=self.store.id)
+
+        self.product = Products.objects.create(
+            name='Test Product',
+            description='Product description',
+            price=100,
+            # stock=10,
+            category=self.category
+        )
 
     def test_create_category(self):
         url = reverse('category-create')
@@ -117,7 +131,7 @@ class ProductTests(APITestCase):
             name='Test Product',
             description='Product description',
             price=100,
-            stock=10,
+            # stock=10,
             category=self.category
         )
 
@@ -127,7 +141,7 @@ class ProductTests(APITestCase):
             'name': 'New Product',
             'description': 'New description',
             'price': 200,
-            'stock': 20,
+            # 'stock': 20,
             'category': self.category.id
         }
         response = self.client.post(url, data, format='json')
