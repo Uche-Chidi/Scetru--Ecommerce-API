@@ -122,11 +122,7 @@ ecommerce/
 
 ### User Information Update
 
-- PUT /api/users/profile/
-
-### User Information Update
-
-- Put /api/user/profile/ - User info
+- PUT /api/users/profile/ - User info
 
 ### Store Management
 
