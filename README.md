@@ -116,37 +116,45 @@ ecommerce/
 ## API Endpoints
 
 ### User Authentication
+
 - POST /api/users/signup/ - User sign-up
 - POST /api/users/login/ - User login
 
 ### User Information Update
+
 - PUT /api/users/profile/
 
 ### User Information Update
+
 - Put /api/user/profile/ - User info
 
 ### Store Management
+
 - POST /api/store/ - Create store
 - PUT /api/store/{id}/ - Update store
 - DELETE /api/store/{id}/ - Delete store
 
 ### Product Category Management
+
 - POST /api/categories/ - Create product category
 - PUT /api/categories/{id}/ - Update product category
 - DELETE /api/categories/{id}/ - Delete product category
 
 ### Product Management
+
 - POST /api/products/ - Add product
 - PUT /api/products/{id}/ - Update product
 - DELETE /api/products/{id}/ - Delete product
 
 ### Product Retrieval
+
 - GET /api/products/ - List all products
 - GET /api/categories/ - List all categories
 - GET /api/categories/{id}/products/ - List products in a category
 - GET /api/products/search/?name={name}&category={category} - Search products by name and category
 
 # Testing
+
 - python3 manage.py test
 
 # Contributing
@@ -161,6 +169,7 @@ ecommerce/
 6. Open a Pull Request
 
 ## Guidelines
+
 - Ensure the code is well-documented
 - Write tests for new features
 - Follow the existing code style and structure
