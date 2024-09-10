@@ -155,7 +155,9 @@ ecommerce/
 
 # Testing
 
-- python3 manage.py test
+1. Run Test 
+    ```bash
+    python3 manage.py test
 
 # Contributing
 
