@@ -1,4 +1,4 @@
-# Simple E-commerce Store REST API
+# Simple E-commerce Platform REST API
 
 This project demonstrates a simple e-commerce store REST API that handles user authentication, product management, store management, and category management.
 
@@ -8,6 +8,7 @@ This project demonstrates a simple e-commerce store REST API that handles user a
 - [Folder Structure](#folder-structure)
 - [Technologies Used](#technologies-used)
 - [Usage](#usage)
+- [Testing](#testing)
 - [Contributing](#contributing)
 
 
@@ -37,7 +38,7 @@ Make sure you have the following installed on your local development environment
 
 1. Clone the repository
     ```bash
-    git clone https://github.com/Uche-Chidi/E-commerce-REST-API.git
+    git clone https://github.com/Uche-Chidi/Scetru--Ecommerce-API
 
 2. Navigate to the project directory:
     ```bash
@@ -107,7 +108,7 @@ ecommerce/
 1. Backend Framework: Django
 2. API Framework: Django REST Framework
 3. Database: SQLite (default, Django)
-4. Authentication: Token Authentication
+4. Authentication: Django Token Authentication
 5. Search: Django Filters
 
 # Usage
@@ -117,6 +118,9 @@ ecommerce/
 ### User Authentication
 - POST /api/users/signup/ - User sign-up
 - POST /api/users/login/ - User login
+
+### User Information Update
+- PUT /api/users/profile/
 
 ### User Information Update
 - Put /api/user/profile/ - User info
@@ -130,6 +134,7 @@ ecommerce/
 - POST /api/categories/ - Create product category
 - PUT /api/categories/{id}/ - Update product category
 - DELETE /api/categories/{id}/ - Delete product category
+
 ### Product Management
 - POST /api/products/ - Add product
 - PUT /api/products/{id}/ - Update product
@@ -141,6 +146,8 @@ ecommerce/
 - GET /api/categories/{id}/products/ - List products in a category
 - GET /api/products/search/?name={name}&category={category} - Search products by name and category
 
+# Testing
+- python3 manage.py test
 
 # Contributing
 

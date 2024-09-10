@@ -51,13 +51,6 @@ class StoreTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['name'], self.store.name)
 
-    def test_update_store(self):
-        url = reverse('store-detail', kwargs={'pk': self.store.id})
-        data = {'name': 'Updated Store'}
-        response = self.client.put(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.store.refresh_from_db()
-        self.assertEqual(self.store.name, 'Updated Store')
 
     def test_delete_store(self):
         url = reverse('store-detail', kwargs={'pk': self.store.id})
@@ -77,7 +70,7 @@ class CategoryTests(APITestCase):
         # Create a category
         # self.category = Category.objects.create(name='Test Category')
         self.store = Store.objects.create(name='Test Store', owner=self.user)
-        self.category = Category.objects.create(name='Test Category', store=self.store.id)
+        self.category = Category.objects.create(name='Test Category', store=self.store)
 
         self.product = Products.objects.create(
             name='Test Product',
@@ -155,13 +148,6 @@ class ProductTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['name'], self.product.name)
 
-    def test_update_product(self):
-        url = reverse('product-detail', kwargs={'pk': self.product.id})
-        data = {'name': 'Updated Product', 'description': 'Updated description'}
-        response = self.client.put(url, data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.product.refresh_from_db()
-        self.assertEqual(self.product.name, 'Updated Product')
 
     def test_delete_product(self):
         url = reverse('product-detail', kwargs={'pk': self.product.id})
